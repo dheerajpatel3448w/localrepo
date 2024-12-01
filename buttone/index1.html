@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        background-color: black;
+    }
+   
+    
+    .rectangle {
+        width: 800px;
+        height: 200px;
+        border-radius: 90px;
+background-color: black;
+display: flex;
+align-items: center;
+margin-left: 20px;
+margin-top: 100px;
+
+
+    }
+    .circle{
+        background-color: yellow;
+        width: 200px;
+        height: 200px;
+        border-radius: 0;
+transition: all 2s  linear;
+overflow: hidden;
+box-shadow: outset 40px 50px 40px red;
+    }
+    .translate{
+   
+        background-color: red;
+        border-radius: 100px;
+      
+    }
+    .translate1{
+        transform: translateX(100%);
+        background-color: red;
+        border-radius: 100px;
+        
+    }
+
+    .translate2{
+      
+        background-color: rgb(216, 229, 231);
+        border-radius: 100px;
+        
+    }
+
+    .translate3{
+        transform: translatex(-30px);
+        background-color: yellow;
+        border-radius: 0;
+        
+    }
+
+</style>
+<body>
+    <div class="rectangle">
+        <div class="circle  " id="pl"></div>
+    </div>
+    <script>
+        const handlemouse1 =()=>{
+ console.log("ok")
+document.querySelector("#pl").classList.add("translate")
+}
+const handlemouse2=()=>{
+ console.log("ok")
+document.querySelector("#pl").classList.add("translate1")
+}
+const handlemouse3 =()=>{
+ console.log("ok")
+document.querySelector("#pl").classList.add("translate2")
+}
+const handlemouse4 =()=>{
+ console.log("ok")
+document.querySelector("#pl").classList.add("translate3")
+}
+document.querySelector('#pl').addEventListener("dblclick",handlemouse1)
+document.getElementById("pl").addEventListener("click",handlemouse2)
+document.getElementById("pl").addEventListener("mouseup",handlemouse3)
+document.getElementById("pl").addEventListener("mouseleave",handlemouse4)
+
+
+
+    </script>
+</body>
+</html>

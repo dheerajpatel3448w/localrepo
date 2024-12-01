@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+   .contianer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #e3dede;
+    width: 100vw;
+ 
+   }
+   .lp{
+    width: 300px;
+    height: 500px;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding: 20px;
+box-shadow: 10px 10px 10px rgba(1, 11, 14, 0.434);
+
+   }
+   
+   .ok{
+    width: 80%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 20px;
+   }
+   #okbutton{
+    margin-top: 20px;
+    width: 200px;
+    height: 90px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    border-radius: 20px;
+   }
+   #okbutton:hover{
+    background-color: #2ecc71;
+   }
+</style>
+<body>
+    <div class="contianer">
+        <div class="lp">
+
+        <h1>welcome to dad joke</h1>
+        <section  class="ok">
+
+        </section>
+        <button id="okbutton">
+            get another joke
+        </button>
+    </div>
+</div>
+    <script>
+       /* document.querySelector('#okbutton').addEventListener("click",()=>{
+       fetch("https://icanhazdadjoke.com/",{
+        headers: {
+            'Accept': 'application/json'
+        }
+     }).then(res=>res.json()).then((data)=>{
+        document.querySelector('.ok').innerHTML = `<h1>${data.joke}</h1>`
+     })
+        })
+  */
+  document.querySelector('#okbutton').addEventListener("click",()=>{
+ const ok = async()=>{
+    try{
+let a = await fetch("https://icanhazdadjoke.com/",{
+    headers: {
+        'Accept': 'application/json'
+    },
+ })
+let res = await a.json();
+console.log(res);
+document.querySelector(".ok").innerHTML = `<h1>${res.joke}</h1>`
+
+ }
+  catch(e){
+    console.error("error",e)
+    document.querySelector(".ok").innerHTML = `<h1>something went wrong</h1>`
+ 
+}
+ }
+ok()
+    
+    })
+    </script>
+</body>
+</html>

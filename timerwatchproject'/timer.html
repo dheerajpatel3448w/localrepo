@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timerwatch</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+   .container {
+   width: 100vw;
+    height: 100vh;
+    background-color: #282828;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+         align-items: center;
+         font-family: Arial, sans-serif;
+
+
+   }
+   .box{
+    width: 60vw;
+    height: 60vh;
+    background-color: #434343;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    
+   }
+   .buttonns{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+   }
+   .button1box,.button2b0x,.button3box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    
+
+   }
+   .sbakibutton{
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+   }
+   .timmer{
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+   }
+   .op2{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #373737;
+    border-radius: 20px;
+    cursor: pointer;
+   }
+</style>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="timmer">
+<h1>0</h1>
+            </div>
+            <div class="buttonns">
+                <div class="button1box">
+                    <button  class="sbakibutton button1">
+                    <h3>Start</h3>
+                    </button>
+                    <button  class="sbakibutton button2">
+                        <h3>Reset</h3>
+                    </button>
+                </div>
+                <div class="button2b0x">
+                    <button class="sbakibutton button3">
+                       <h3>Pause</h3>
+                    </button>
+                    <button class="sbakibutton button4">
+                    <h3>gettime</h3>
+                    </button>
+                </div>
+                <div class="button3box">
+                    <button class="sbakibutton button5">
+                   <h3>clear time</h3>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="op2">
+        
+        </div>
+    </div>
+<script>
+  let buttton1 = document.querySelector(".button1");
+  let buttton2 = document.querySelector(".button2");
+  let buttton3 = document.querySelector(".button3");
+  let buttton4 = document.querySelector(".button4");
+  let buttton5 = document.querySelector(".button5");
+  let time =0;
+  let myinterval1
+  let myinterval 
+  buttton1.addEventListener("click",()=>{
+    clearInterval(myinterval)
+    clearInterval(myinterval1);
+   console.log("start");
+   
+ myinterval=  setInterval(()=>{
+    document.querySelector(".timmer").innerHTML=time++;
+   },1000)
+  });
+  buttton2.addEventListener("click",()=>{
+    clearInterval(myinterval1);
+    console.log("reset");
+ 
+  time=0;
+  clearInterval(myinterval);
+  myinterval1= setInterval(()=>{
+    document.querySelector(".timmer").innerHTML=time++;
+   },1000)
+});
+buttton3.addEventListener("click",()=>{
+clearInterval(myinterval);
+clearInterval(myinterval1);
+
+   })
+   buttton4.addEventListener("click",()=>{
+ document.querySelector(".op2").innerHTML  = `<li>current time is : ${time-1}<li>`+ document.querySelector(".op2").innerHTML
+})
+  buttton5.addEventListener("click",()=>{
+document.querySelector(".op2").innerHTML =""
+
+  });
+</script>
+</body>
+</html>

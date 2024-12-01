@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>   
+    
+    <div class="ok">
+    <input type="text" name="username" id="pl" placeholder="type something ...."  autocomplete="off">
+
+</div>
+<div class="op">
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+    <p id="p4"></p>
+
+
+
+</div>
+    <script>
+   
+        const handleinput = (e)=>{
+            console.log("ok")
+            document.querySelector("#p1").textContent=`input value : ${e.target.value}`
+            document.querySelector("#p2").textContent=`input name : ${e.target.name}`
+            document.querySelector("#p3").textContent=`input type : ${e.inputType}`
+            document.querySelector("#p4").textContent=`event type : ${e.type}`
+        }
+      let p =   document.getElementById("pl").addEventListener("input",handleinput)
+    </script>
+</body>
+</html>

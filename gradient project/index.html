@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        color: white;
+        font-weight: lighter; 
+        font-size: 17px;       
+    }
+
+    body{
+        background-image:linear-gradient(to right, rgb(91,145,229),rgb(52,63,1981))
+
+    }
+    .main1{
+        width:100vw ;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .main2{
+        width: 400px;
+        height: 500px;
+
+
+    }
+ .btn{
+background-color:rgb(4, 4, 64) ;
+border-radius: 50px;
+width: 130px;
+height: 45px;
+border: 0;
+ }
+ .btn1{
+background-color:rgb(130, 240, 14) ;
+border-radius: 50px;
+width: 130px;
+height: 45px;
+border: 0;
+ }
+ .mainchild{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 30px ;
+ 
+ }
+ .mainchild1{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+ }
+ .mainchild2{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 5px solid rgb(243, 243, 241);
+    
+    border-radius: 10px;
+    background-color:rgba(0, 255, 255, 0.114);
+  
+    height: 100px;
+    padding-left: 30px;
+
+    
+ }
+</style>
+<body>
+    <div class="main1">
+    <div class="main2 ">
+        <div class="mainchild">
+            <button class="btn" id="bn">#051937</button>
+            <button class="btn1" id="bn1">#008793</button>
+        </div>
+        <div class="mainchild1">
+            <p>copy your code here</p>
+        </div>
+        <div class="mainchild2">
+            background-image : linear-gradient(to right, rgb(91,145,229),rgb(52,63,1981))
+
+        </div>
+    </div>
+</div>
+<script>
+    let rgb;
+    let rgb2;
+    const randome = ()=>{
+let myheax="1234567890abcdf";
+let color = '#'
+for(let i=0;i<6;i++){
+   color= color+ myheax[Math.floor(Math.random()*16)]
+
+}
+return color ;
+
+    }
+    const btnclick = (e) => { 
+  rgb = randome();
+
+if(!rgb.includes("undefined")){
+    console.log(rgb);
+
+document.body.style.backgroundImage=`linear-gradient(to right, ${rgb2},${rgb})`
+document.querySelector(".mainchild2").innerHTML=` background-image : linear-gradient(to right, ${rgb2},${rgb})`
+document.getElementById("bn1").innerHTML=` 
+${rgb}`
+}
+
+     }
+   
+     const btnclick1 = (e) => { 
+ rgb2 = randome();
+if(!rgb2.includes("undefined")){
+    console.log(rgb2);
+
+document.body.style.backgroundImage=`linear-gradient(to right, ${rgb2},${rgb})`
+document.querySelector(".mainchild2").innerHTML=` background-image : linear-gradient(to right, ${rgb2},${rgb})`
+document.getElementById("bn").innerHTML=` ${rgb2}`
+}
+
+
+     }
+let mybtn= document.querySelector(".btn");
+let mybtn1 = document.querySelector(".btn1");
+mybtn1.addEventListener("click",btnclick);
+mybtn.addEventListener("click",btnclick1);
+let cov = document.querySelector(".mainchild2")
+cov.addEventListener("click",()=>{
+    navigator.clipboard.writeText(cov.innerText)
+})
+
+</script>
+</body>
+</html>
